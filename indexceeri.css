@@ -1,0 +1,42 @@
+/* indexceeri.css */
+
+/* Custom CSS to define unique colors and overrides */
+
+/* Define custom colors */
+:root {
+    --bs-navy: #000080; /* Dark Navy Blue for Footer/Headings */
+    --bs-darker-navy: #000066; /* Slightly darker shade for copyright bar */
+}
+
+/* Apply colors to Bootstrap's utility classes */
+.bg-navy { background-color: var(--bs-navy) !important; }
+.bg-darker-navy { background-color: var(--bs-darker-navy) !important; }
+.text-navy { color: var(--bs-navy) !important; }
+
+
+/* Banner Background Image (Custom) */
+.banner {
+    /* Overlay and Image */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+        url('CSIR-CEERI.webp'); 
+    
+    background-size: cover;
+    background-position: center;
+}
+
+/* Custom Hover Effect for Feature Boxes (Cards) */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px); /* Lift the card */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; /* Enhanced shadow */
+}
+
+/* Opacity Hover Effect for Footer Links */
+.hover-opacity-100:hover {
+    opacity: 1 !important;
+}
+

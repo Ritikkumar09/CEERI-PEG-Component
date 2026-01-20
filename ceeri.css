@@ -1,0 +1,254 @@
+/* Basic Reset for consistent styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; 
+    
+    /* STICKY FOOTER LAYOUT */
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+}
+
+
+/* Ensure the main content takes up all available space, pushing the footer down */
+.content-wrapper {
+    flex-grow: 1; /* This is the key change: make the main content fill the empty space */
+}
+
+/* Ensure the main content takes up all available space, pushing the footer down */
+.banner, 
+.feature-boxes {
+    flex-shrink: 0; /* Prevents banner/boxes from shrinking */
+}
+
+/* You may need to wrap your banner and section into a main tag to make this cleaner */
+/* For now, we assume the content is everything between header and footer */
+.feature-boxes {
+    flex-grow: 1; /* Allows the main content area to expand and push the footer down */
+}
+
+
+/* --- Navigation Bar Styling --- */
+.navbar {
+    background-color: white; /* White background for the nav bar area */
+    display: flex; /* Enables flexbox for easy alignment */
+    justify-content: space-between; /* Pushes logo to left, links to right */
+    align-items: center; /* Vertically centers items */
+    padding: 10px 40px; /* Padding on top/bottom and left/right */
+    /* You might need a border-bottom if you want a subtle line */
+    /* border-bottom: 1px solid #ddd; */
+}
+
+/* Logo Area Styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 30px; /* Adjust size as needed */
+    margin-right: 8px; /* Space between image and text */
+}
+
+.logo-text {
+    font-size: 1.5em; /* Larger font for the institution name */
+    font-weight: bold;
+    color: #333; /* Dark text color */
+}
+
+/* Navigation Links Styling */
+.nav-links ul {
+    list-style: none; /* Removes bullet points */
+    display: flex; /* Lays out the list items horizontally */
+}
+
+.nav-links ul li {
+    margin-left: 25px; /* Space between each link */
+}
+
+.nav-links ul li a {
+    text-decoration: none; /* Removes underline */
+    color: #333; /* Dark text color for links */
+    font-size: 1.1em;
+    padding: 5px 0;
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.nav-links ul li a:hover {
+    color: #007bff; /* Change color on hover for visual feedback */
+}
+
+/* Style for the active/current page link, like "Home" in the screenshot */
+.nav-links ul li a.active {
+    font-weight: bold; /* Make the active link stand out */
+    color: #333; 
+    /* You could also add a subtle underline or different color if desired */
+    /* border-bottom: 2px solid #333; */
+}
+
+
+/* --- Banner Section (for the main image/text below the nav) --- */
+.banner {
+    /* 1. Add the Background Image */
+    background-image: 
+        /* 2. ADD THE SEMI-TRANSPARENT OVERLAY FIRST */
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+        /* 3. THEN SPECIFY THE IMAGE */
+        url('CSIR-CEERI.webp'); 
+        /* IMPORTANT: Replace 'your-background-image.jpg' with your actual image path */
+    
+    background-size: cover;
+    background-position: center;
+    height: 300px; /* Adjust height as needed */
+    
+    /* Center the text vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner-text {
+    color: white; /* White text for "CSIR CEERI" */
+    font-size: 5em;
+    font-style: italic; /* Optional: Matches the slightly italic look in the screenshot */
+    font-weight: bold;
+    text-align: center;
+    /* Removed: padding and background-color */
+}
+
+/* --- Welcome Text Styling --- */
+.welcome-text {
+    text-align: center;
+    padding: 30px 20px 10px; /* Top, Sides, Bottom */
+    font-size: 1.15em;
+    color: #333;
+    border-bottom: 1px solid #ddd; /* Subtle separator line */
+    margin-bottom: 30px;
+}
+
+.welcome-text p {
+    color: #000080; /* A dark blue color, similar to the screenshot */
+    font-weight: 500;
+}
+
+/* --- Box Container Styling (Layout) --- */
+.box-container {
+    display: flex;
+    justify-content: center; /* Center the group of boxes */
+    gap: 30px; /* Space between the boxes */
+    padding: 0 40px 50px; /* Padding for the section */
+}
+
+/* --- Individual Feature Box Styling --- */
+.feature-box {
+    text-decoration: none; /* Remove default link underline */
+    text-align: center;
+    flex-basis: 300px; /* Set a specific width for each box */
+    display: block; /* Makes the entire box clickable */
+    transition: transform 0.3s ease; /* For a subtle hover effect */
+}
+
+.feature-box:hover {
+    transform: translateY(-5px); /* Lift the box slightly on hover */
+}
+
+.box-image {
+    width: 100%; /* Image takes full width of the box */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Removes any extra spacing below image */
+    /* Ensure the images have a uniform height for a cleaner look */
+    /* You might need to set a fixed height in a real project and use object-fit: cover; */
+    max-height: 200px; 
+    object-fit: cover;
+}
+
+.box-heading {
+    margin-top: 15px;
+    font-size: 1.3em;
+    color: #000080; /* Dark blue color for the headings, matching the welcome text */
+    text-decoration: underline; /* Adds the underline effect from the screenshot */
+    font-weight: 600;
+}
+/* --- Footer Styling --- */
+.site-footer {
+    width: 100%;
+    /* Use a dark color for contrast, maybe matching CEERI's brand blue/navy */
+    background-color: #000080; /* Dark Navy Blue */
+    color: #f4f4f4; /* Light text */
+    padding-top: 30px;
+    /* This ensures the footer itself does not grow, it just occupies its natural space */
+    flex-shrink: 0; 
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around; /* Distribute sections evenly */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 30px; /* Sides padding, bottom padding */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+}
+
+.footer-section {
+    flex-basis: 30%; /* Give each section roughly equal space */
+}
+
+.footer-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #fff; /* White heading */
+}
+
+/* Styling for quick links list */
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-links a,
+.contact-info a {
+    color: #f4f4f4;
+    text-decoration: none;
+    transition: color 0.3s;
+    line-height: 1.8; /* Space out the lines */
+    display: block; /* Make the whole line clickable */
+}
+
+.quick-links a:hover,
+.contact-info a:hover,
+.social-icons a:hover {
+    color: #007bff; /* Hover effect */
+}
+
+/* Styling for social media links */
+.social-icons a {
+    color: #f4f4f4;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 1em; /* Adjust size if using text, or bigger if using icons */
+    padding: 5px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* Copyright Bar */
+.footer-bottom {
+    text-align: center;
+    padding: 15px 40px;
+    font-size: 0.9em;
+    background-color: #000066; /* Slightly darker shade for the bottom bar */
+}
+
+.center-text {
+  text-align: center;
+}
